@@ -1,38 +1,37 @@
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
-        try (FileWriter fileWriter=new FileWriter("outputText.txt")){
-            fileWriter.write("\nA a");
-            fileWriter.write("\nB b");
-            fileWriter.write("\nC c");
-            fileWriter.write("\n....");
-            fileWriter.write("\n....");
-            fileWriter.write("\nZ z");
-            fileWriter.write("\n0");
-            fileWriter.write("\n1");
-            fileWriter.write("\n2");
-            fileWriter.write("\n...");
-            fileWriter.write("\n9");
-            //fileWriter.close();
+        try (FileReader fileReader=new FileReader("outputText.txt")){
+            Scanner scanner=new Scanner(fileReader);
+            while (scanner.hasNextLine()){
+                System.out.println(scanner.nextLine());
+
+            }
         }catch (IOException e){
             e.printStackTrace();
         }
+        fileWriter();
+    }
 
-        try {
-            FileReader fileReader=new FileReader("inputText .txt");
-            Scanner scanner=new Scanner(fileReader);
-            scanner.nextLine();
-            while (scanner.hasNextLine()){
-                System.out.println(scanner.nextLine());
-            }
+    private static void fileWriter() {
+        try (FileWriter fileWriter=new FileWriter("outputText.txt")){
+            fileWriter.write("\nA a"+"\nB b"+"\nC c"+"\nD d"+"\nE e"+"\nF f"+
+                    "\nG g"+"\nH h"+"\nI i"+"\nJ j"+"\nK k"+"\nL l"+"\nM m"+"\nN n"+"\nO o"+
+                    "\nP p"+"\nQ q"+"\nR r"+"\nS s"+"\nT t"+"\nU u"+"\nV v"+"\nW w"+
+                    "\nX x"+"\nY y"+"\nZ z");
+            fileWriter.write("\n1"+"\n2"+"\n3"+"\n4"+"\n5"+"\n6"+"\n7"+"\n8"+"\n9");
 
         }catch (IOException e){
             e.printStackTrace();
+        
+
+
         }
     }
 }
